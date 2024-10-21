@@ -22,3 +22,25 @@ pip install nltk jieba numpy
 ```
 
 ## Execution
+
+Default values are:
+
+-   ENG_QUERY: "Typhoon Taiwan war"
+-   CHI_QUERY: "資安 遊戲"
+
+**To use default values**
+
+```
+python main.py
+```
+
+**Usage**
+
+```
+usage: main.py [-h] [--Eng_query ENG_QUERY] [--Chi_query CHI_QUERY]
+
+options:
+  -h, --help            show this help message and exit
+  --Eng_query ENG_QUERY
+  --Chi_query CHI_QUERY
+```
