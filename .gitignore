@@ -1,0 +1,4 @@
+__pycache__
+jieba_cache
+nltk_data
+.DS_Store
