@@ -237,6 +237,25 @@ files = [
 ]
 
 [[package]]
+name = "textblob"
+version = "0.18.0.post0"
+description = "Simple, Pythonic text processing. Sentiment analysis, part-of-speech tagging, noun phrase parsing, and more."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "textblob-0.18.0.post0-py3-none-any.whl", hash = "sha256:dd0c7ec4eb7b9346ec0a3f136a63eba13e0f59890d2a693d3d6aeb8371949dca"},
+    {file = "textblob-0.18.0.post0.tar.gz", hash = "sha256:8131c52c630bcdf61d04c359f939c98d5b836a01fba224d9e7ae22fc274e0ccb"},
+]
+
+[package.dependencies]
+nltk = ">=3.8"
+
+[package.extras]
+dev = ["pre-commit (>=3.5,<4.0)", "textblob[tests]", "tox"]
+docs = ["PyYAML (==6.0.1)", "sphinx (==7.2.6)", "sphinx-issues (==4.0.0)"]
+tests = ["numpy", "pytest"]
+
+[[package]]
 name = "tqdm"
 version = "4.66.5"
 description = "Fast, Extensible Progress Meter"
@@ -259,4 +278,4 @@ telegram = ["requests"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "398cd3d52abbfd914525212622a37eb336056b5944a267a752d0609cacf3ba06"
+content-hash = "d2f4874ea8f7dd44439f68a4b73bfe9618574e1297d103a92a61ba946c45a083"

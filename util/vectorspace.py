@@ -1,7 +1,10 @@
 from typing import Any, Callable
 import numpy as np
-from nltk.stem import PorterStemmer
+from week3.PorterStemmer import PorterStemmer
+from textblob import TextBlob as tb
 from enum import Enum
+import os
+import nltk
 
 
 def _cosine_similarity(a: np.ndarray, b: np.ndarray):
@@ -16,6 +19,11 @@ def _euclidean_distance(a: np.ndarray, b: np.ndarray):
 
 class DefaultParser:
     def __init__(self):
+        # Install the nltk packages
+        CWD = os.getcwd()
+        os.environ["NLTK_DATA"] = f"{CWD}/nltk_data"
+        nltk.download("punkt_tab", download_dir="./nltk_data")
+
         self.stemmer = PorterStemmer()
         self.stopwords = open("util/english.stop", "r").read().split()
 
@@ -29,8 +37,13 @@ class DefaultParser:
 
     def tokenise(self, string):
         """Break string up into tokens and stem words"""
-        words = self.clean(string).split(" ")
-        return [self.stemmer.stem(word, True) for word in words]
+        string = self.clean(string)
+        blob = tb(string)
+        words = [w for w in blob.words]  #  type: ignore
+        return [self.stemmer.stem(word, 0, len(word) - 1) for word in words]
+        # return [self.stemmer.stem(word, True) for word in words]
+        # words = tb.TextBlob(self.clean(string)).words
+        # return [tb.Word(word).stem() for word in words]
 
     def text_preprocess(self, text: str) -> list[str]:
         """Tokenise text and remove stopwords"""
