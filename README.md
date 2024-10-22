@@ -6,6 +6,7 @@
 nltk = "^3.9.1"
 jieba = "^0.42.1"
 numpy = "^2.1.2"
+textblob = "^0.18.0.post0"
 ```
 
 **Setting up via `poetry`:**
@@ -18,7 +19,7 @@ poetry install
 **Setting up via `pip`**
 
 ```
-pip install nltk jieba numpy
+pip install nltk jieba numpy textblob
 ```
 
 ## Execution
